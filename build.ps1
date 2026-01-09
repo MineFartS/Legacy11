@@ -69,7 +69,7 @@ $partition = $USBdisk | New-Partition `
 Write-Output "Formatting Partition ..."
 $partition | Format-Volume `
     -FileSystem exFAT `
-    -NewFileSystemLabel "Mac11" `
+    -NewFileSystemLabel "Legacy11" `
     | Out-Null
 
 #=====================================================
@@ -81,8 +81,8 @@ $extracted = "$env:temp\Win10-BaseSetup\"
 if (-not (Test-Path $extracted)) {
     
     Write-Output "Downloading Installer Files ..."
-    Invoke-WebRequest ` # TODO
-        -Uri "https://media.githubusercontent.com/media/MineFartS/Legacy11/refs/heads/main/Win10-BaseSetup.zip" `
+    Invoke-WebRequest `
+        -Uri "https://github.com/MineFartS/Legacy11/raw/refs/heads/master/Win10-BaseSetup.zip" `
         -OutFile $zipFile
 
     #
